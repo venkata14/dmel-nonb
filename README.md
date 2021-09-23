@@ -9,7 +9,7 @@ Preperation for Dyad Symmetry
 sudo apt-get install emboss
 ```
 
-palindrome is found in the EMBOSS suite of programs. Follow the commands in the `dyad-symmetry` folder for this part of the analysis.
+*palindrome* is found in the EMBOSS suite of programs. Follow the commands in the `dyad-symmetry` folder for this part of the analysis.
 
 
 Preparation for SIST
