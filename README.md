@@ -2,6 +2,48 @@
 
 This repository has all the code for the paper ***
 
+Preperation for Dyad Symmetry
+---
+
+```
+sudo apt-get install emboss
+```
+
+palindrome is found in the EMBOSS suite of programs. Follow the commands in the `dyad-symmetry` folder for this part of the analysis.
+
+
+Preparation for SIST
+---
+
+Install `sist-codes` from: https://academic.oup.com/bioinformatics/article/31/3/421/2365978. Follow the instructions for proper installation and place files into `analysis/sist-codes/` folder.
+
+If on a 64-bit system, 32-bit support needs to be enabled.
+
+```
+sudo apt-get update
+sudo dpkg --add-architecture i386
+sudo apt-get update
+sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386
+```
+
+If this does not work, try this.
+
+```
+sudo apt-get install multiarch-support
+```
+
+The analysis can be followed in the `analysis` folder
+
+
+Preperation for GQuad
+---
+
+Install R.
+
+```
+sudo apt-get install r-base
+```
+
 Extraction of IPD Values for *D. melanogaster*
 ---
 
@@ -77,7 +119,7 @@ Do this for all the subread folders
 
 ```
 samtools faidx dm6.fa 
-pbalign <input>.bax2ban.bam dm6.fa <output>.bax2bam.pbalign.bam
+pbalign <input>.bax2bam.bam dm6.fa <output>.bax2bam.pbalign.bam
 ```
 
 
@@ -98,3 +140,5 @@ This package does not have the IPD model for the chemistry of the dataset. The c
 ipdSummary test.bax2bam.pbalign.bam --reference dm6.fa --useChemistry "P5-C3" --ipdModel /path-to-directory/P5-C3.h5 --csv kinetics.csv
 ```
 
+
+Analysis in the `ipd` folder uses the `kinetics.csv` file.
