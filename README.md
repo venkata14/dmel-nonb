@@ -1,6 +1,6 @@
 # dmel-nonb
 
-This repository has all the code for the paper ***
+This repository has all the code for the paper "Enrichment of non-B-form DNA at *D. melanogaster* centromeres"
 
 Preperation for Dyad Symmetry
 ---
