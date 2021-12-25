@@ -1,6 +1,14 @@
 # dmel-nonb
 
+Fill in the `FULL_PATH` in split_file.sh in tools folder and the extract_ipds_from... 
+put the ref genome in the refs folder
+
 This repository has all the code for the paper "Enrichment of non-B-form DNA at *D. melanogaster* centromeres"
+
+Generating Controls
+---
+
+In the `analysis` folder run the `gen_controls.ah` and `fill_controls.sh` to create the controls. You must first rin `init_setup.sh` to initialize the centromere folders before you can generate the controls. 
 
 Preperation for Dyad Symmetry
 ---
@@ -34,6 +42,8 @@ sudo apt-get install multiarch-support
 
 The analysis can be followed in the `analysis` folder
 
+Set up the analysis with `init_setup.sh`. Run SIST on the centromere and controls with `run_cen_sist.sh` and `run_control_sist.sh`. ANalysis of the data can be found in the `analyze_enrichment.ipynb` file
+
 
 Preperation for GQuad
 ---
@@ -43,7 +53,21 @@ Install R.
 ```
 sudo apt-get install r-base
 ```
-*** the file creation part
+
+Install GQuad from https://cran.r-project.org/web/packages/gquad/index.html
+
+Split the reference genome file into the respective contig fils and place them into the `ind-contigs` folder. Run `gquad_r_gquad.py`.
+
+Place the respective files in the respective folders
+```
+mv aphased_* R_gquad_results/aphased/
+mv gquad_* R_gquad_results/gquad/
+mv hdna_* R_gquad_results/hdna/
+mv slipped_* R_gquad_results/slipped/
+mv str_* R_gquad_results/str/
+mv tfo_* R_gquad_results/tfo/
+mv zdna_* R_gquad_results/zdna/
+```
 
 Extraction of IPD Values for *D. melanogaster*
 ---
@@ -137,9 +161,21 @@ Install the required tools from: https://github.com/PacificBiosciences/kineticsT
 
 This package does not have the IPD model for the chemistry of the dataset. The correct model can be found in the `smrttools 7.0.0` package.
 
+Either this
+
 ```
-ipdSummary test.bax2bam.pbalign.bam --reference dm6.fa --useChemistry "P5-C3" --ipdModel /path-to-directory/P5-C3.h5 --csv kinetics.csv
+ipdSummary final.merge.pbalign.bam --reference dm6.fa --useChemistry "P5-C3" --ipdModel /path-to-directory/P5-C3.h5 --csv kinetics.csv
 ```
 
+or use `extract_ipds.sh` in the `gquad/ipds` folder. This requires that you put the `final.merge.pbalign.bam` in this folder as well.
 
-Analysis in the `ipd` folder uses the `kinetics.csv` file.
+However, we ran into RAM issues when using the methods above. As such, we split the final merged file into individual contigs and extracted IPDs from those split files.
+
+In the `gquad/ipds`, `sort_bam.sh` sorts the bam file and outputs a SAM file. `make_split_file.sh` splits the SAM file into individual SAM files for each contig.  `extract_ipds_from_split_files.sh` extracts IPDs from the split SAM files and places them in the `gquad/ipds/ipd` folder. Analysis for this data is in `analyzeRData.ipynb`.
+
+
+Preperation for G4Hunter
+---
+
+
+Place `G4Hunter.py` from the github found in Re-evaluation of G-quadruplex propensity with G4Hunter(https://academic.oup.com/nar/article/44/4/1746/1854457) in the `G4` folder. Run `script.sh`.
