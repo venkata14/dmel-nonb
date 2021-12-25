@@ -1,9 +1,10 @@
 # dmel-nonb
 
-Fill in the `FULL_PATH` in split_file.sh in tools folder and the extract_ipds_from... 
-put the ref genome in the refs folder
-
 This repository has all the code for the paper "Enrichment of non-B-form DNA at *D. melanogaster* centromeres"
+
+Note: put the reference genome in the `ref` folders. The genome can be found at [Heterochromatin-Enriched Assemblies Reveal the Sequence and Organization of the Drosophila melanogaster Y Chromosome](https://academic.oup.com/genetics/article/211/1/333/5931168).
+
+Additional Note: You must fill in the `FULL_PATH` variable in multiple Shell scripts: `split_file.sh`, `extract_ipds_from_split_files.sh`, `extract_ipds.sh`,  
 
 Generating Controls
 ---
