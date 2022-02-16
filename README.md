@@ -165,7 +165,7 @@ This package does not have the IPD model for the chemistry of the dataset. The c
 Either this
 
 ```
-ipdSummary final.merge.pbalign.bam --reference dm6.fa --useChemistry "P5-C3" --ipdModel /path-to-directory/P5-C3.h5 --csv kinetics.csv
+ipdSummary final.merge.pbalign.bam --reference dm6.fa --useChemistry "P5-C3" --ipdModel /path-to-directory/P5-C3.npz.gz --csv kinetics.csv
 ```
 
 or use `extract_ipds.sh` in the `gquad/ipds` folder. This requires that you put the `final.merge.pbalign.bam` in this folder as well.
