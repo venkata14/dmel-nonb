@@ -180,3 +180,8 @@ Preperation for G4Hunter
 
 
 Place `G4Hunter.py` from the github found in Re-evaluation of G-quadruplex propensity with G4Hunter(https://academic.oup.com/nar/article/44/4/1746/1854457) in the `G4` folder. Run `script.sh`.
+
+
+---
+
+The list of controls used in this paper can be found in `analysis/list_of_controls_used`.
