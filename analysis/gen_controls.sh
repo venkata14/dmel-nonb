@@ -99,7 +99,7 @@ do
                                                 else if (substr(seq,i,1)=="G") sumG+=1; 
                                                 else if (substr(seq,i,1)=="C") sumC+=1; 
                                                 else if (substr(seq,i,1)=="N") sumN+=1}; 
-                                            if ((sumC+sumG)/k*100<(GC+2.5) && (sumC+sumG)/k*100>(GC-2.5)) print $1"\t"k"\t"GC"\t"(sumC+sumG)/k*100}' >> $OUT_FILENAME &
+                                            if ((sumC+sumG)/k*100<(GC+10.0) && (sumC+sumG)/k*100>(GC-10.0)) print $1"\t"k"\t"GC"\t"(sumC+sumG)/k*100}' >> $OUT_FILENAME &
         
 
         COUNTER=$((COUNTER+1)) # Increment the counter by 1
